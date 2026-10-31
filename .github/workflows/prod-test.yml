@@ -165,7 +165,7 @@ jobs:
           key: v1
 
       # https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
-      - run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+      - run: if [ -e /proc/sys/kernel/apparmor_restrict_unprivileged_userns ]; then echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns; fi
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Dependencies
