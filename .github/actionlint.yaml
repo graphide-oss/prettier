@@ -1,0 +1,7 @@
+self-hosted-runner:
+  labels:
+    - graphide-linux-x64-2
+    - graphide-linux-x64-4
+    - graphide-linux-x64-8
+    - graphide-linux-x64-16
+    - graphide-linux-x64-32
