@@ -16,7 +16,7 @@ permissions:
 jobs:
   no-response:
     if: github.event_name != 'schedule' || github.repository == 'prettier/prettier'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - uses: lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb # v0.5.0
         with:

@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - "ubuntu-latest"
+          - "graphide-linux-x64-4"
         node:
           # Minimal version for development
           - "22"

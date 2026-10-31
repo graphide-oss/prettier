@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   support:
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - uses: dessant/support-requests@04320880d61b7fcaac4216e60522cb569478a63d # v5.0.2
         with:
