@@ -34,32 +34,16 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
 
-      - name: Check Dependencies
-        run: yarn lint:deps
-
-      - name: Check JSDoc Types
-        run: yarn lint:typecheck
-
-      - name: Lint ESLint
-        run: yarn lint:eslint
-
-      - name: Lint Prettier
-        run: yarn lint:prettier
-
-      - name: Spellcheck
-        run: yarn lint:spellcheck
-
-      - name: Lint Changelog
-        run: yarn lint:changelog
-
-      - name: Lint "format test"
-        run: yarn lint:format-test
-
-      - name: Lint docs code block
-        run: yarn prettier "{docs,website/versioned_docs/version-stable}/**/*.md" --check
-        env:
-          # Make Prettier throws on embedded format
-          PRETTIER_DEBUG: true
+      - name: Lint (independent checks)
+        run: |
+          yarn lint:deps
+          yarn lint:typecheck
+          yarn lint:eslint
+          yarn lint:prettier
+          yarn lint:spellcheck
+          yarn lint:changelog
+          yarn lint:format-test
+          PRETTIER_DEBUG=true yarn prettier "{docs,website/versioned_docs/version-stable}/**/*.md" --check
 
       - name: Lint workflow files
         run: |
