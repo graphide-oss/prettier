@@ -44,7 +44,7 @@ jobs:
       ENABLE_CODE_COVERAGE: ${{ matrix.ENABLE_CODE_COVERAGE }}
       FULL_TEST: ${{ matrix.FULL_TEST }}
     name: ${{ matrix.FULL_TEST && '[Full Test] ' || '' }} Node.js ${{ matrix.node }} on ${{ startsWith(matrix.os, 'macos') && 'MacOS' || startsWith(matrix.os, 'windows') && 'Windows' || 'Linux' }}
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
