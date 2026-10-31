@@ -26,7 +26,7 @@ jobs:
   webpack:
     if: github.event_name != 'schedule' || github.repository == 'prettier/prettier'
     name: Bundle Prettier with webpack
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: [build]
     steps:
       - name: Checkout

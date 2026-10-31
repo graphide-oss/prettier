@@ -24,7 +24,7 @@ jobs:
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: [build]
     steps:
       - name: Checkout
@@ -203,7 +203,7 @@ jobs:
 
   cli:
     name: CLI
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: [build]
     steps:
       - name: Checkout
@@ -240,7 +240,7 @@ jobs:
   preview:
     if: github.repository == 'prettier/prettier'
     name: Preview release
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: [build]
     steps:
       - name: Checkout
