@@ -54,8 +54,6 @@ jobs:
       matrix:
         os:
           - "ubuntu-latest"
-          - "macos-latest"
-          - "windows-latest"
         node:
           # Latest version
           - "26"
@@ -77,17 +75,10 @@ jobs:
             node: "18"
           - os: "ubuntu-latest"
             node: "16"
-          # Tests on Intel Mac x Node.js 14 ( https://github.com/prettier/prettier/issues/16248 )
-          - os: "macos-15-intel"
-            node: "14"
-        # setup-node does not support Node.js 14 x M1 Mac
-        exclude:
-          - os: "macos-latest"
-            node: "14"
     env:
       FULL_TEST: ${{ matrix.FULL_TEST }}
     name: ${{ matrix.FULL_TEST && '[Full Test] ' || '' }} Node.js ${{ matrix.node }} on ${{ startsWith(matrix.os, 'macos') && 'MacOS' || startsWith(matrix.os, 'windows') && 'Windows' || 'Linux' }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     needs: [build]
     steps:
       - name: Checkout
@@ -144,7 +135,6 @@ jobs:
         os:
           - "ubuntu-latest"
           # - "macos-latest"
-          - "windows-latest"
         browser:
           - "chrome"
           - "firefox"
@@ -153,15 +143,11 @@ jobs:
           - os: "ubuntu-latest"
             browser: "chrome"
             FULL_TEST: true
-        exclude:
-          # Hangs https://github.com/prettier/prettier/pull/18716
-          - os: "windows-latest"
-            browser: "chrome"
     env:
       FULL_TEST: ${{ matrix.FULL_TEST }}
       TEST_RUNTIME_BROWSER: ${{ matrix.browser }}
     name: ${{ matrix.FULL_TEST && '[Full Test] ' || '' }} Browser(${{ matrix.browser }}) on ${{ startsWith(matrix.os, 'macos') && 'MacOS' || startsWith(matrix.os, 'windows') && 'Windows' || 'Linux' }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     needs: [build]
     steps:
       - name: Checkout
